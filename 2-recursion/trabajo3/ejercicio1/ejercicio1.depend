@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1661463339 source:c:\users\mateo\github\programacion-lab-2\2-recursion\trabajo3\ejercicio1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
