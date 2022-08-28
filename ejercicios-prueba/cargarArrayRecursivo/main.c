@@ -3,11 +3,11 @@
 #include <time.h>
 
 int cargarArrayRecu(int *A, int dim, int i);
+void mostrarArrayRecu(int *A, int validos, int i);
 int cargarArray(int *A, int dim);
 void mostrarArray(int *A, int validos);
 
-int main() {
-    int dim = 0, validos = 0, validos2 = 0;
+int main() { int dim = 0, validos = 0, validos2 = 0;
 
     printf("Introduzca la dimension de su arreglo: ");
     scanf("%d", &dim);
@@ -19,7 +19,7 @@ int main() {
     validos2 = cargarArray(array2, dim);
 
     puts("\nArray cargardo recu:");
-    mostrarArray(array, validos);
+    mostrarArrayRecu(array, validos, 0);
 
     puts("\nArray cargardo:");
     mostrarArray(array2, validos2);
@@ -48,6 +48,13 @@ int cargarArray(int *A, int dim) {
 
 void mostrarArray(int *A, int validos) {
     for(int i = 0; i < validos; i++) {
+        printf("%d ", A[i]);
+    }
+}
+
+void mostrarArrayRecu(int *A, int validos, int i) {
+    if (i != validos) {
+        mostrarArrayRecu(A, validos, i + 1);
         printf("%d ", A[i]);
     }
 }
