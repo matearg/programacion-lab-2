@@ -1,0 +1,28 @@
+"lista.h"
+
+#include <persona.h>
+
+typedef struct{
+    persona dato;
+    struct nodo * siguiente;
+} nodo;
+
+nodo * inicLista() {
+    return NULL;
+}
+
+nodo * crearNodo(persona dato) {
+    nodo * aux = (nodo *)malloc(sizeof(nodo));
+    aux->dato = dato;
+    aux->siguiente = NULL;
+    return aux;
+}
+
+-----------------------------------------------------------------------
+
+int main() {
+    nodo * lista;
+    lista = inicLista();
+
+    lista = cargarNodoAlPrincipio(lista);
+}
