@@ -7,7 +7,7 @@ typedef struct _nodo{
     struct _nodo * siguiente;
 } nodo;
 
-nodo * iniclista(); // hecho
+nodo * inicLista(); // hecho
 nodo * crearNodo(persona dato);
 nodo * agregarNodo(nodo * lista, nodo * nuevo);
 nodo * buscarUltimo(nodo * lista); // hecho

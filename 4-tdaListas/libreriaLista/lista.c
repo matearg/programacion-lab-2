@@ -1,11 +1,14 @@
 #include "lista.h"
+#include <stdio.h>
 #include <stdlib.h>
 
-nodo * inicLista() {
+nodo * inicLista()
+{
     return NULL;
 }
 
-nodo * crearNodo(persona dato) {
+nodo * crearNodo(persona dato)
+{
     nodo * aux = (nodo *)malloc(sizeof(nodo));
     aux->dato = dato;
     aux->siguiente = NULL;
@@ -13,12 +16,16 @@ nodo * crearNodo(persona dato) {
 }
 
 // Uso persona para ejemplo
-nodo * agregarNodo(nodo * lista, nodo * nuevo) {
+nodo * agregarNodo(nodo * lista, nodo * nuevo)
+{
     nodo * ultimo;
 
-    if (!lista) {
+    if (lista == NULL)
+    {
         lista = nuevo;
-    } else {
+    }
+    else
+    {
         ultimo = buscarUltimo(lista);
         ultimo->siguiente = nuevo;
     }
@@ -26,24 +33,42 @@ nodo * agregarNodo(nodo * lista, nodo * nuevo) {
     return lista;
 }
 
-void mostrarLista(nodo *lista) {
+void mostrarLista(nodo *lista)
+{
     nodo * seg = lista;
-    
-    while (seg) {
-        mostrarNodo(seg);
-        seg = seg->siguiente;
+
+    if (seg != NULL)
+    {
+        while (seg != NULL)
+        {
+            mostrarNodo(seg);
+            seg = seg->siguiente;
+        }
+    }
+    else
+    {
+        printf("Lista vacia\n\n");
     }
 }
 
-void mostrarNodo(nodo *lista) {
+void mostrarNodo(nodo *lista)
+{
     mostrarPersona(lista->dato);
 }
 
-nodo * buscarUltimo(nodo * lista) {
+// EJEMPLO
+// void mostrarNodo(nodo *lista) {
+//     printf("dato");
+// }
+
+nodo * buscarUltimo(nodo * lista)
+{
     nodo * seg = lista;
 
-    if (seg) {
-        while (seg->siguiente) {
+    if (seg != NULL)
+    {
+        while (seg->siguiente != NULL)
+        {
             seg = seg->siguiente;
         }
     }
