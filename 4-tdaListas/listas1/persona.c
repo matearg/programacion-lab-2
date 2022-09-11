@@ -16,11 +16,16 @@ persona cargarPersona() {
     fflush(stdin);
     scanf("%s", aux.apellido);
 
+    printf("Ingrese la edad: ");
+    fflush(stdin);
+    scanf("%d", &aux.edad);
+
     return aux;
 }
 
 void mostrarPersona(persona dato) {
     printf("DNI: %d\n", dato.dni);
     printf("Nombre: %s\n", dato.nombre);
-    printf("Apellido: %s\n\n", dato.apellido);
+    printf("Apellido: %s\n", dato.apellido);
+    printf("Edad: %d\n\n", dato.edad);
 }

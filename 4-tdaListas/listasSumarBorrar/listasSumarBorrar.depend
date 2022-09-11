@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1662682744 source:z:\home\mateo\github\programacion-lab-2\4-tdalistas\listassumarborrar\lista.c
+	"lista.h"
+	<stdio.h>
+	<stdlib.h>
+
+1662682736 z:\home\mateo\github\programacion-lab-2\4-tdalistas\listassumarborrar\lista.h
+	<stdio.h>
+	<stdlib.h>
+
+1662682740 source:z:\home\mateo\github\programacion-lab-2\4-tdalistas\listassumarborrar\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"lista.h"
+

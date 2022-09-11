@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "lista.h"
 
 nodo * cargarLista(nodo * lista);
+nodo * buscarNodo(nodo * lista, int dni);
 void menu(nodo * lista);
 
 int main()
@@ -19,6 +21,7 @@ int main()
 void menu(nodo * lista)
 {
     int opcion = 0;
+    int aBuscar = 0;
 
     do
     {
@@ -26,6 +29,7 @@ void menu(nodo * lista)
         printf("------ Listas ------\n"
                "[1] Cargar lista\n"
                "[2] Mostar lista\n"
+               "[3] Buscar persona\n"
                "[0] Salir\n\n"
                "Ingrese una opcion -> "
               );
@@ -40,6 +44,13 @@ void menu(nodo * lista)
             // recorro y muestro la lista
             system("cls");
             mostrarLista(lista);
+            system("pause");
+            break;
+        case 3:
+            system("cls");
+            printf("Ingrese el DNI de la persona -> ");
+            scanf("%d", &aBuscar);
+            mostrarNodo(buscarNodo(lista, aBuscar));
             system("pause");
             break;
         case 0:
@@ -71,4 +82,18 @@ nodo * cargarLista(nodo * lista)
     while (cond == 's');
 
     return lista;
+}
+
+nodo * buscarNodo(nodo * lista, int dni)
+{
+    nodo * seg = lista;
+
+    if (seg != NULL)
+    {
+        while (seg->siguiente != NULL && dni != seg->dato.dni)
+        {
+            seg = seg->siguiente;
+        }
+    }
+    return seg;
 }
