@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "persona.h"
 
+#define Pila nodo *
+
 typedef struct _nodo{
     persona dato;
     struct _nodo * siguiente;
@@ -11,7 +13,6 @@ typedef struct _nodo{
 nodo * inicLista();
 nodo * crearNodo(persona dato);
 nodo * agregarAlFinal(nodo * lista, nodo * nuevo);
-nodo * agregarAlPrincipio(nodo * lista, nodo * nuevo);
 nodo * buscarUltimo(nodo * lista);
 void mostrarLista(nodo * lista);
 void mostrarNodo(nodo * lista);

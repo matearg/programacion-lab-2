@@ -15,18 +15,6 @@ nodo * crearNodo(persona dato)
     return aux;
 }
 
-nodo * agregarAlPrincipio(nodo * lista, nodo * nuevo)
-{
-    nuevo->siguiente = lista;
-
-    if (lista)
-    {
-        lista = nuevo;
-    }
-
-    return lista;
-}
-
 nodo * agregarAlFinal(nodo * lista, nodo * nuevo)
 {
     nodo * ultimo;
