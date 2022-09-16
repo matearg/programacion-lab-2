@@ -13,6 +13,7 @@ nodo * crearNodo(persona dato);
 nodo * agregarAlFinal(nodo * lista, nodo * nuevo);
 nodo * agregarAlPrincipio(nodo * lista, nodo * nuevo);
 nodo * buscarUltimo(nodo * lista);
+nodo * agregarEnOrden(nodo * lista, nodo * nuevo);
 void mostrarLista(nodo * lista);
 void mostrarNodo(nodo * lista);
 
@@ -22,4 +23,5 @@ nodo * subProgramaAgregarAlFinal(nodo * lista, persona dato);
 nodo * subProgramaArchivoToLista(nodo * lista, char archivo[]);
 nodo * subProgramaVaciarLista(nodo * lista);
 nodo * subProgramaCargarLista(nodo * lista);
+nodo * subProgramaCargarOrdenada(nodo * lista);
 nodo * subProgramaInvertirLista(nodo * lista);

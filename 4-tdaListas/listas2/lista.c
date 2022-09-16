@@ -1,4 +1,4 @@
-#i#i#include "lista.h"
+#include "lista.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -84,15 +84,22 @@ nodo * buscarUltimo(nodo * lista)
 
 nodo * agregarEnOrden(nodo * lista, nodo * nuevo)
 {
-    if (!lista) {
+    if (!lista)
+    {
         lista = nuevo;
-    } else {
-        if (strcmp(nuevo->dato.nombre, lista->dato.nombre) < 0) {
+    }
+    else
+    {
+        if (strcmp(nuevo->dato.nombre, lista->dato.nombre) < 0)
+        {
             lista = agregarAlPrincipio(lista, nuevo);
-        } else {
+        }
+        else
+        {
             nodo * ante = lista;
             nodo * seg = lista->siguiente;
-            while ((seg) && (strcmp(nuevo->dato.nombre, seg->dato.nombre) > 0)) {
+            while ((seg) && (strcmp(nuevo->dato.nombre, seg->dato.nombre) > 0))
+            {
                 ante = seg;
                 seg = seg->siguiente;
             }
@@ -103,18 +110,22 @@ nodo * agregarEnOrden(nodo * lista, nodo * nuevo)
     return lista;
 }
 
-nodo * subProgramaAgregarAlFinal(nodo * lista, persona dato) {
+nodo * subProgramaAgregarAlFinal(nodo * lista, persona dato)
+{
     nodo * aux = crearNodo(dato);
     lista = agregarAlFinal(lista, aux);
     return lista;
 }
 
-nodo * subProgramaArchivoToLista(nodo * lista, char archivo[]) {
+nodo * subProgramaArchivoToLista(nodo * lista, char archivo[])
+{
     persona aux;
     FILE * archi = fopen(archivo, "rb");
 
-    if (archi) {
-        while (fread(&aux, sizeof(persona), 1, archi) > 0) {
+    if (archi)
+    {
+        while (fread(&aux, sizeof(persona), 1, archi) > 0)
+        {
             lista = subProgramaAgregarAlFinal(lista, aux);
         }
         fclose(archi);
@@ -126,13 +137,15 @@ nodo * subProgramaCargarLista(nodo * lista)
 {
     char control;
 
-    do {
+    do
+    {
         lista = agregarAlFinal(lista, crearNodo(cargarPersona()));
 
         printf("Quiere agregar otra persona? s/n ");
         fflush(stdin);
         scanf("%c", &control);
-    } while (control == 's');
+    }
+    while (control == 's');
 
     return lista;
 }
@@ -142,7 +155,8 @@ nodo * subProgramaVaciarLista(nodo * lista)
     nodo * seg = lista;
     nodo * proximo;
 
-    while (seg) {
+    while (seg)
+    {
         proximo = seg->siguiente;
         free(seg);
         seg = proximo;
@@ -150,17 +164,20 @@ nodo * subProgramaVaciarLista(nodo * lista)
 
     return seg;
 }
+
 nodo * subProgramaCargarOrdenada(nodo * lista)
 {
     char control;
 
-    do {
+    do
+    {
         lista = agregarEnOrden(lista, crearNodo(cargarPersona()));
 
         printf("Quiere agregar otra persona? s/n ");
         fflush(stdin);
         scanf("%c", &control);
-    } while (control == 's');
+    }
+    while (control == 's');
 
     return lista;
 }

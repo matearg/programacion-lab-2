@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1663364118 source:z:\home\mateo\github\programacion-lab-2\4-tdalistas\listas2\lista.c
+	"lista.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1663364748 z:\home\mateo\github\programacion-lab-2\4-tdalistas\listas2\lista.h
+	<stdio.h>
+	<stdlib.h>
+	"persona.h"
+
+1663363827 z:\home\mateo\github\programacion-lab-2\4-tdalistas\listas2\persona.h
+	<stdio.h>
+	<string.h>
+
+1663363838 source:z:\home\mateo\github\programacion-lab-2\4-tdalistas\listas2\persona.c
+	"persona.h"
+	<stdio.h>
+
+1663364521 source:z:\home\mateo\github\programacion-lab-2\4-tdalistas\listas2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
