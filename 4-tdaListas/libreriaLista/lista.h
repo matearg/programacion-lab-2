@@ -23,6 +23,7 @@ void mostrarNodo(nodo * lista);
 // Funciones dependientes del tipo de dato
 nodo * subProgramaAgregarAlFinal(nodo * lista, persona dato);
 nodo * subProgramaArchivoToLista(nodo * lista, char archivo[]);
+void subProgramaListaToArchivo(nodo * lista, char archivo[]);
 nodo * subProgramaVaciarLista(nodo * lista);
 nodo * subProgramaCargarLista(nodo * lista);
 nodo * subProgramaCargarOrdenada(nodo * lista);

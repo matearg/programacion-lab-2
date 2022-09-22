@@ -134,7 +134,6 @@ nodo * borrarNodo(nodo * lista, int valor)
 
     if ((lista) && (valor == lista->dato))
     {
-        nodo * aux = lista;
         lista = lista->siguiente;
     }
     else
@@ -231,4 +230,21 @@ nodo * subProgramaCargarOrdenada(nodo * lista)
     while (control == 's');
 
     return lista;
+}
+
+void subProgramaListaToArchivo(nodo * lista, char archivo[])
+{
+    int aux;
+    FILE * archi = fopen(archivo, "ab");
+
+    if (archi && lista)
+    {
+        while (lista)
+        {
+            aux = lista->dato;
+            fwrite(&aux, sizeof(int), 1, archi);
+            lista = lista->siguiente;
+        }
+        fclose(archi);
+    }
 }

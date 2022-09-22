@@ -160,6 +160,20 @@ nodo * subProgramaArchivoToLista(nodo * lista, char archivo[]) {
     return lista;
 }
 
+void subProgramaListaToArchivo(nodo * lista, char archivo[]) {
+    persona aux;
+    FILE * archi = fopen(archivo, "ab");
+
+    if (archi && lista) {
+        while (lista) {
+            aux = lista->dato;
+            fwrite(&aux, sizeof(persona), 1, archi);
+            lista = lista->siguiente;
+        }
+        fclose(archi);
+    }
+}
+
 nodo * subProgramaCargarLista(nodo * lista)
 {
     char control;

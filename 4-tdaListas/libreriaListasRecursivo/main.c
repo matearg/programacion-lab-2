@@ -26,6 +26,8 @@ void menu(nodo * lista)
                "[2] Mostar lista\n"
                "[3] Mostar lista recursivo\n"
                "[4] Sumar lista recursivo\n"
+               "[5] Pasar lista a archivo\n"
+               "[6] Pasar archivo a lista\n"
                "[0] Salir\n\n"
                "Ingrese una opcion -> "
               );
@@ -54,6 +56,16 @@ void menu(nodo * lista)
             // recorro y sumo la lista recursivamente
             system("cls");
             printf("Suma = %d\n\n", sumarListaRecursivo(lista));
+            system("pause");
+            break;
+        case 5:
+            system("cls");
+            subProgramaListaToArchivo(lista, "lista.dat");
+            system("pause");
+            break;
+        case 6:
+            system("cls");
+            lista = subProgramaArchivoToLista(lista, "lista.dat");
             system("pause");
             break;
         case 0:

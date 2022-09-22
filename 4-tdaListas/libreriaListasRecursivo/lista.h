@@ -27,3 +27,4 @@ nodo * subProgramaVaciarLista(nodo * lista);
 nodo * subProgramaCargarLista(nodo * lista);
 nodo * subProgramaCargarOrdenada(nodo * lista);
 nodo * subProgramaInvertirLista(nodo * lista);
+void subProgramaListaToArchivo(nodo * lista, char archivo[]);
