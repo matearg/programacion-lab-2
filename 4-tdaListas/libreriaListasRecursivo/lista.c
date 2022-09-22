@@ -8,7 +8,7 @@ nodo * inicLista()
     return NULL;
 }
 
-nodo * crearNodo(persona dato)
+nodo * crearNodo(int dato)
 {
     nodo * aux = (nodo *)malloc(sizeof(nodo));
     aux->dato = dato;
@@ -65,7 +65,7 @@ void mostrarLista(nodo *lista)
 
 void mostrarNodo(nodo *lista)
 {
-    mostrarPersona(lista->dato);
+    printf("%d ", lista->dato);
 }
 
 nodo * buscarUltimo(nodo * lista)
@@ -91,7 +91,7 @@ nodo * agregarEnOrden(nodo * lista, nodo * nuevo)
     else
     {
         // if (strcmp(nuevo->dato.nombre, lista->dato.nombre) < 0)
-        if (nuevo->dato.dni < lista->dato.dni)
+        if (nuevo->dato < lista->dato)
         {
             lista = agregarAlPrincipio(lista, nuevo);
         }
@@ -100,7 +100,7 @@ nodo * agregarEnOrden(nodo * lista, nodo * nuevo)
             nodo * ante = lista;
             nodo * seg = lista->siguiente;
             // while ((seg) && (strcmp(nuevo->dato.nombre, seg->dato.nombre) > 0))
-            while ((seg) && (nuevo->dato.dni > seg->dato.dni))
+            while ((seg) && (nuevo->dato > seg->dato))
             {
                 ante = seg;
                 seg = seg->siguiente;
@@ -112,7 +112,50 @@ nodo * agregarEnOrden(nodo * lista, nodo * nuevo)
     return lista;
 }
 
-nodo * subProgramaAgregarAlFinal(nodo * lista, persona dato)
+nodo * buscarNodo(nodo * lista, int valor)
+{
+    nodo * seg = lista;
+
+    if (lista)
+    {
+        while ((seg) && (valor != seg->dato))
+        {
+            seg = seg->siguiente;
+        }
+    }
+
+    return seg;
+}
+
+nodo * borrarNodo(nodo * lista, int valor)
+{
+    nodo * seg;
+    nodo * ante;
+
+    if ((lista) && (valor == lista->dato))
+    {
+        nodo * aux = lista;
+        lista = lista->siguiente;
+    }
+    else
+    {
+        seg = lista;
+        while ((seg) && (valor != seg->dato))
+        {
+            ante = seg;
+            seg = seg->siguiente;
+        }
+        if (seg)
+        {
+            ante->siguiente = seg->siguiente;
+            free(seg);
+        }
+    }
+    return lista;
+}
+
+// SUBPROGRAMAS
+nodo * subProgramaAgregarAlFinal(nodo * lista, int dato)
 {
     nodo * aux = crearNodo(dato);
     lista = agregarAlFinal(lista, aux);
@@ -121,12 +164,12 @@ nodo * subProgramaAgregarAlFinal(nodo * lista, persona dato)
 
 nodo * subProgramaArchivoToLista(nodo * lista, char archivo[])
 {
-    persona aux;
+    int aux;
     FILE * archi = fopen(archivo, "rb");
 
     if (archi)
     {
-        while (fread(&aux, sizeof(persona), 1, archi) > 0)
+        while (fread(&aux, sizeof(int), 1, archi) > 0)
         {
             lista = subProgramaAgregarAlFinal(lista, aux);
         }
@@ -138,12 +181,15 @@ nodo * subProgramaArchivoToLista(nodo * lista, char archivo[])
 nodo * subProgramaCargarLista(nodo * lista)
 {
     char control;
+    int num;
 
     do
     {
-        lista = agregarAlFinal(lista, crearNodo(cargarPersona()));
+        printf("Introduzca un numero -> ");
+        scanf("%d", &num);
+        lista = agregarAlFinal(lista, crearNodo(num));
 
-        printf("Quiere agregar otra persona? s/n ");
+        printf("Quiere agregar otro numero? s/n ");
         fflush(stdin);
         scanf("%c", &control);
     }
@@ -170,12 +216,15 @@ nodo * subProgramaVaciarLista(nodo * lista)
 nodo * subProgramaCargarOrdenada(nodo * lista)
 {
     char control;
+    int num;
 
     do
     {
-        lista = agregarEnOrden(lista, crearNodo(cargarPersona()));
+        printf("Introduzca un numero -> ");
+        scanf("%d", &num);
+        lista = agregarEnOrden(lista, crearNodo(num));
 
-        printf("Quiere agregar otra persona? s/n ");
+        printf("Quiere agregar otro numero? s/n ");
         fflush(stdin);
         scanf("%c", &control);
     }
@@ -183,4 +232,3 @@ nodo * subProgramaCargarOrdenada(nodo * lista)
 
     return lista;
 }
-

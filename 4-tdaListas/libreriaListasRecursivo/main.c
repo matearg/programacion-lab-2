@@ -8,7 +8,8 @@ int sumarListaRecursivo(nodo * lista);
 
 int main()
 {
-    nodo * lista = inicLista();
+    nodo * lista = NULL;
+    printf("Hello Listas Recursivas!\n");
     menu(lista);
     return 0;
 }
@@ -39,12 +40,14 @@ void menu(nodo * lista)
             // recorro y muestro la lista
             system("cls");
             mostrarLista(lista);
+            printf("\n\n");
             system("pause");
             break;
         case 3:
             // recorro y muestro la lista recursivamente
             system("cls");
             recorrerYmostrar(lista);
+            printf("\n\n");
             system("pause");
             break;
         case 4:
@@ -65,19 +68,25 @@ void menu(nodo * lista)
     while (opcion != 0);
 }
 
-void recorrerYmostrar(nodo * lista) {
-    if (lista) {
+void recorrerYmostrar(nodo * lista)
+{
+    if (lista)
+    {
         mostrarNodo(lista);
         recorrerYmostrar(lista->siguiente);
     }
 }
 
-int sumarListaRecursivo(nodo * lista) {
+int sumarListaRecursivo(nodo * lista)
+{
     int suma;
-    if (lista) {
-        suma = lista->dato.dni + sumarListaRecursivo(lista->siguiente);
+    if (lista)
+    {
+        suma = lista->dato + sumarListaRecursivo(lista->siguiente);
         sumarListaRecursivo(lista->siguiente);
-    } else {
+    }
+    else
+    {
         suma = 0;
     }
     return suma;
