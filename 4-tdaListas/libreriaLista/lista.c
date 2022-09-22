@@ -1,4 +1,4 @@
-#i#i#include "lista.h"
+#include "lista.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -103,6 +103,44 @@ nodo * agregarEnOrden(nodo * lista, nodo * nuevo)
     return lista;
 }
 
+nodo * buscarNodo(nodo * lista, char nombre[20])
+{
+    nodo * seg = lista;
+
+    if (lista) {
+        while ((seg) && (strcmp(nombre, seg->dato.nombre) != 0)) {
+            seg = seg->siguiente;
+        }
+    }
+
+    return seg;
+}
+
+nodo * borrarNodo(nodo * lista, char nombre[20])
+{
+    nodo * seg;
+    nodo * ante;
+
+    if ((lista) && (strcmp(nombre, lista->dato.nombre) == 0))
+    {
+        nodo * aux = lista;
+        lista = lista->siguiente;
+    } else {
+        seg = lista;
+        while ((seg) && (strcmp(nombre, seg->dato.nombre) != 0))
+        {
+            ante = seg;
+            seg = seg->siguiente;
+        }
+        if (seg) {
+            ante->siguiente = seg->siguiente;
+            free(seg);
+        }
+    }
+    return lista;
+}
+
+// SUBPROGRAMAS
 nodo * subProgramaAgregarAlFinal(nodo * lista, persona dato) {
     nodo * aux = crearNodo(dato);
     lista = agregarAlFinal(lista, aux);
