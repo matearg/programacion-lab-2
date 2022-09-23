@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "persona.h"
+#include "producto.h"
 
 typedef struct _nodo{
-    persona dato;
+    stProducto dato;
     struct _nodo * siguiente;
 } nodo;
 
 // Funciones independientes del tipo de dato
 nodo * inicLista();
-nodo * crearNodo(persona dato);
+nodo * crearNodo(stProducto dato);
 nodo * agregarAlFinal(nodo * lista, nodo * nuevo);
 nodo * agregarAlPrincipio(nodo * lista, nodo * nuevo);
 nodo * buscarUltimo(nodo * lista);
@@ -21,7 +21,7 @@ void mostrarNodo(nodo * lista);
 
 
 // Funciones dependientes del tipo de dato
-nodo * subProgramaAgregarAlFinal(nodo * lista, persona dato);
+nodo * subProgramaAgregarAlFinal(nodo * lista, stProducto dato);
 nodo * subProgramaArchivoToLista(nodo * lista, char archivo[]);
 void subProgramaListaToArchivo(nodo * lista, char archivo[]);
 nodo * subProgramaVaciarLista(nodo * lista);

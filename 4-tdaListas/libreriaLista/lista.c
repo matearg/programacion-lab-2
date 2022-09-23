@@ -8,7 +8,7 @@ nodo * inicLista()
     return NULL;
 }
 
-nodo * crearNodo(persona dato)
+nodo * crearNodo(stProducto dato)
 {
     nodo * aux = (nodo *)malloc(sizeof(nodo));
     aux->dato = dato;
@@ -65,7 +65,7 @@ void mostrarLista(nodo *lista)
 
 void mostrarNodo(nodo *lista)
 {
-    mostrarPersona(lista->dato);
+    mostrarProducto(lista->dato);
 }
 
 nodo * buscarUltimo(nodo * lista)
@@ -141,18 +141,18 @@ nodo * borrarNodo(nodo * lista, char nombre[20])
 }
 
 // SUBPROGRAMAS
-nodo * subProgramaAgregarAlFinal(nodo * lista, persona dato) {
+nodo * subProgramaAgregarAlFinal(nodo * lista, stProducto dato) {
     nodo * aux = crearNodo(dato);
     lista = agregarAlFinal(lista, aux);
     return lista;
 }
 
 nodo * subProgramaArchivoToLista(nodo * lista, char archivo[]) {
-    persona aux;
+    stProducto aux;
     FILE * archi = fopen(archivo, "rb");
 
     if (archi) {
-        while (fread(&aux, sizeof(persona), 1, archi) > 0) {
+        while (fread(&aux, sizeof(stProducto), 1, archi) > 0) {
             lista = subProgramaAgregarAlFinal(lista, aux);
         }
         fclose(archi);
@@ -161,13 +161,13 @@ nodo * subProgramaArchivoToLista(nodo * lista, char archivo[]) {
 }
 
 void subProgramaListaToArchivo(nodo * lista, char archivo[]) {
-    persona aux;
+    stProducto aux;
     FILE * archi = fopen(archivo, "ab");
 
     if (archi && lista) {
         while (lista) {
             aux = lista->dato;
-            fwrite(&aux, sizeof(persona), 1, archi);
+            fwrite(&aux, sizeof(stProducto), 1, archi);
             lista = lista->siguiente;
         }
         fclose(archi);
@@ -179,9 +179,9 @@ nodo * subProgramaCargarLista(nodo * lista)
     char control;
 
     do {
-        lista = agregarAlFinal(lista, crearNodo(cargarPersona()));
+        lista = agregarAlFinal(lista, crearNodo(cargarProducto()));
 
-        printf("Quiere agregar otra persona? s/n ");
+        printf("Quiere agregar otro producto? s/n ");
         fflush(stdin);
         scanf("%c", &control);
     } while (control == 's');
@@ -207,9 +207,9 @@ nodo * subProgramaCargarOrdenada(nodo * lista)
     char control;
 
     do {
-        lista = agregarEnOrden(lista, crearNodo(cargarPersona()));
+        lista = agregarEnOrden(lista, crearNodo(cargarProducto()));
 
-        printf("Quiere agregar otra persona? s/n ");
+        printf("Quiere agregar otro producto? s/n ");
         fflush(stdin);
         scanf("%c", &control);
     } while (control == 's');

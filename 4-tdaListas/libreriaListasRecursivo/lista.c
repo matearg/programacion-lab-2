@@ -235,7 +235,7 @@ nodo * subProgramaCargarOrdenada(nodo * lista)
 void subProgramaListaToArchivo(nodo * lista, char archivo[])
 {
     int aux;
-    FILE * archi = fopen(archivo, "ab");
+    FILE * archi = fopen(archivo, "wb");
 
     if (archi && lista)
     {
