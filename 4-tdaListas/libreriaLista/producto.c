@@ -16,8 +16,13 @@ stProducto cargarProducto() {
     fflush(stdin);
     scanf("%f", &aux.precio);
 
+    aux.eliminado = 0;
+
+    // aux.idProducto = subProgramaGestionId(lista);
+
     return aux;
 }
 
 void mostrarProducto(stProducto dato) {
+    printf("%d %s %s %f\n", dato.idProducto, dato.marca, dato.nombre, dato.precio);
 }

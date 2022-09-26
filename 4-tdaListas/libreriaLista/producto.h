@@ -11,3 +11,7 @@ typedef struct {
 
 stProducto cargarProducto(); // hecho
 void mostrarProducto(stProducto dato); // hecho
+
+
+
+// int subProgramaGestionId(nodo * lista);
