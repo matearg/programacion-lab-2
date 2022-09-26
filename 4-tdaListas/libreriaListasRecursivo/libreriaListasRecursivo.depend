@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1663890716 source:z:\home\mateo\github\programacion-lab-2\4-tdalistas\librerialistasrecursivo\lista.c
+1663971293 source:z:\home\mateo\github\programacion-lab-2\4-tdalistas\librerialistasrecursivo\lista.c
 	"lista.h"
 	<stdio.h>
 	<stdlib.h>
@@ -9,7 +9,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1663970979 source:z:\home\mateo\github\programacion-lab-2\4-tdalistas\librerialistasrecursivo\main.c
+1664118433 source:z:\home\mateo\github\programacion-lab-2\4-tdalistas\librerialistasrecursivo\main.c
 	<stdio.h>
 	<stdlib.h>
 	"lista.h"
