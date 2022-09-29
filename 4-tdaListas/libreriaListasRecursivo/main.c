@@ -5,8 +5,10 @@
 void menu(nodo *lista);
 void recorrerYmostrar(nodo *lista);
 int sumarListaRecursivo(nodo *lista);
+nodo *insertarEnOrdenR(nodo *lista, nodo *nuevo);
 nodo *invertirLista(nodo *lista);
 nodo *desvincularNodoInicial(nodo **p_lista);
+nodo *subProgramaCargaRecursiva(nodo *lista);
 
 int main()
 {
@@ -31,6 +33,7 @@ void menu(nodo *lista)
                "[5] Invertir lista\n"
                "[6] Pasar lista a archivo\n"
                "[7] Pasar archivo a lista\n"
+               "[8] Cargar lista recursivo\n"
                "[0] Salir\n\n"
                "Ingrese una opcion -> ");
         scanf("%d", &opcion);
@@ -74,6 +77,10 @@ void menu(nodo *lista)
             system("cls");
             lista = subProgramaArchivoToLista(lista, "lista.dat");
             system("pause");
+            break;
+        case 8:
+            system("cls");
+            lista = subProgramaCargaRecursiva(lista);
             break;
         case 0:
             system("cls");
@@ -166,4 +173,44 @@ nodo *intercalarListas(nodo *lista_A, nodo *lista_B, nodo *lista_C)
     }
 
     return lista_C;
+}
+
+nodo *insertarEnOrdenR(nodo *lista, nodo *nuevo)
+{
+    if (!lista)
+    {
+        lista = nuevo;
+    }
+    else
+    {
+        if (lista->dato > nuevo->dato)
+        {
+            lista = agregarAlPrincipio(lista, nuevo);
+        }
+        else
+        {
+            lista->siguiente = insertarEnOrdenR(lista->siguiente, nuevo);
+        }
+    }
+    return lista;
+}
+
+nodo *subProgramaCargaRecursiva(nodo *lista)
+{
+    char control;
+    int num;
+
+    do
+    {
+        printf("Introduzca un numero -> ");
+        scanf("%d", &num);
+        lista = insertarEnOrdenR(lista, crearNodo(num));
+
+        printf("Quiere agregar otro numero? s/n ");
+        fflush(stdin);
+        scanf("%c", &control);
+    }
+    while (control == 's');
+
+    return lista;
 }
