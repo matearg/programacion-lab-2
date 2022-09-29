@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct _nodoDoble {
+typedef struct _nodoDoble
+{
     int dato;
     struct _nodoDoble * anterior;
     struct _nodoDoble * siguiente;
