@@ -16,6 +16,7 @@ nodo * buscarUltimo(nodo * lista);
 nodo * agregarEnOrden(nodo * lista, nodo * nuevo);
 nodo * buscarNodo(nodo * lista, char nombre[20]);
 nodo * borrarNodo(nodo * lista, char nombre[20]);
+nodo * eliminarPrimerNodo(nodo * lista);
 void mostrarLista(nodo * lista);
 void mostrarNodo(nodo * lista);
 

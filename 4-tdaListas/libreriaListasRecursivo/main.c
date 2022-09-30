@@ -7,8 +7,11 @@ void recorrerYmostrar(nodo *lista);
 int sumarListaRecursivo(nodo *lista);
 nodo *insertarEnOrdenR(nodo *lista, nodo *nuevo);
 nodo *invertirLista(nodo *lista);
+nodo *invertirListaRecursivo(nodo *lista);
 nodo *desvincularNodoInicial(nodo **p_lista);
 nodo *subProgramaCargaRecursiva(nodo *lista);
+nodo *eliminarPrimerNodo(nodo *lista);
+nodo *borrarNodoRecursiva(nodo *lista, int num);
 
 int main()
 {
@@ -212,5 +215,35 @@ nodo *subProgramaCargaRecursiva(nodo *lista)
     }
     while (control == 's');
 
+    return lista;
+}
+
+nodo *invertirListaRecursivo(nodo *lista) {
+    nodo * aux;
+    if (lista) {
+        aux = desvincularNodoInicial(&lista);
+        lista = invertirListaRecursivo(lista);
+        lista = agregarAlFinal(lista, aux);
+    }
+    return lista;
+}
+
+nodo *eliminarPrimerNodo(nodo *lista) {
+    if (lista) {
+        nodo *aux = lista;
+        lista = lista->siguiente;
+        free(aux);
+    }
+    return lista;
+}
+
+nodo * borrarNodoRecursiva(nodo * lista, int num) {
+    if (lista) {
+        if (lista->dato == num) {
+            lista = eliminarPrimerNodo(lista);
+        } else {
+            lista->siguiente = borrarNodoRecursiva(lista->siguiente, num);
+        }
+    }
     return lista;
 }

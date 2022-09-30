@@ -140,6 +140,15 @@ nodo * borrarNodo(nodo * lista, char nombre[20])
     return lista;
 }
 
+nodo *eliminarPrimerNodo(nodo *lista) {
+    if (lista) {
+        nodo *aux = lista;
+        lista = lista->siguiente;
+        free(aux);
+    }
+    return lista;
+}
+
 // SUBPROGRAMAS
 nodo * subProgramaAgregarAlFinal(nodo * lista, stProducto dato) {
     nodo * aux = crearNodo(dato);
