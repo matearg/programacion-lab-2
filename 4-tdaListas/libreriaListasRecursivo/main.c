@@ -6,7 +6,6 @@ void menu(nodo *lista);
 void recorrerYmostrar(nodo *lista);
 int sumarListaRecursivo(nodo *lista);
 nodo *insertarEnOrdenR(nodo *lista, nodo *nuevo);
-nodo *invertirLista(nodo *lista);
 nodo *invertirListaRecursivo(nodo *lista);
 nodo *desvincularNodoInicial(nodo **p_lista);
 nodo *subProgramaCargaRecursiva(nodo *lista);
@@ -68,7 +67,7 @@ void menu(nodo *lista)
             break;
         case 5:
             system("cls");
-            lista = invertirLista(lista);
+            lista = invertirListaRecursivo(lista);
             system("pause");
             break;
         case 6:
@@ -121,19 +120,19 @@ int sumarListaRecursivo(nodo *lista)
     return suma;
 }
 
-nodo *invertirLista(nodo *lista)
-{
-    nodo *aux;
-    nodo *listaInvertida = inicLista();
-
-    while (lista)
-    {
-        aux = desvincularNodoInicial(&lista);
-        listaInvertida = agregarAlPrincipio(listaInvertida, aux);
-    }
-
-    return listaInvertida;
-}
+// nodo *invertirLista(nodo *lista)
+// {
+//     nodo *aux;
+//     nodo *listaInvertida = inicLista();
+//
+//     while (lista)
+//     {
+//         aux = desvincularNodoInicial(&lista);
+//         listaInvertida = agregarAlPrincipio(listaInvertida, aux);
+//     }
+//
+//     return listaInvertida;
+// }
 
 nodo *desvincularNodoInicial(nodo **p_lista)
 {

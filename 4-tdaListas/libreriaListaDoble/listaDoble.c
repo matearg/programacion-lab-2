@@ -24,6 +24,18 @@ nodoDoble * agregarAlPrincipioD(nodoDoble * lista, nodoDoble * nuevo)
     return nuevo;
 }
 
+nodoDoble * buscarUltimo(nodoDoble *lista)
+{
+    nodoDoble *aux = lista;
+    if (lista) {
+        while (aux->siguiente) {
+            aux = aux->siguiente;
+        }
+    }
+
+    return aux;
+}
+
 nodoDoble * buscarUltimoDR(nodoDoble * lista)
 {
     nodoDoble *rta;
