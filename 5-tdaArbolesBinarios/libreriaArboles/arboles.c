@@ -70,3 +70,11 @@ void inorder(nodoArbol * arbol) {
         inorder(arbol->der);
     }
 }
+
+void postorder(nodoArbol * arbol) {
+    if (arbol) {
+        inorder(arbol->izq);
+        inorder(arbol->der);
+        printf("%d", arbol->dato);
+    }
+}

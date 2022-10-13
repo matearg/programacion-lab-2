@@ -16,5 +16,6 @@ nodoArbol * buscarNodo(nodoArbol * arbol, int dato);
 nodoArbol * insertarNodo(nodoArbol * arbol, int dato);
 void preorder(nodoArbol * arbol);
 void inorder(nodoArbol * arbol);
+void postorder(nodoArbol * arbol);
 
 #endif // ARBOLES_H_INCLUDED
