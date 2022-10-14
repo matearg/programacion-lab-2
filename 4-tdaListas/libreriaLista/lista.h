@@ -1,3 +1,6 @@
+#ifndef LISTA_H_INCLUDED
+#define LISTA_H_INCLUDED
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "producto.h"
@@ -29,3 +32,5 @@ nodo * subProgramaVaciarLista(nodo * lista);
 nodo * subProgramaCargarLista(nodo * lista);
 nodo * subProgramaCargarOrdenada(nodo * lista);
 nodo * subProgramaInvertirLista(nodo * lista);
+
+#endif // LISTA_H_INCLUDED
