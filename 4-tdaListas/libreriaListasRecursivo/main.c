@@ -11,6 +11,7 @@ nodo *desvincularNodoInicial(nodo **p_lista);
 nodo *subProgramaCargaRecursiva(nodo *lista);
 nodo *eliminarPrimerNodo(nodo *lista);
 nodo *borrarNodoRecursiva(nodo *lista, int num);
+int sumarListaRecursivo2(nodo *lista);
 
 int main()
 {
@@ -63,6 +64,7 @@ void menu(nodo *lista)
             // recorro y sumo la lista recursivamente
             system("cls");
             printf("Suma = %d\n\n", sumarListaRecursivo(lista));
+            printf("Suma2 = %d\n\n", sumarListaRecursivo2(lista));
             system("pause");
             break;
         case 5:
@@ -245,4 +247,8 @@ nodo * borrarNodoRecursiva(nodo * lista, int num) {
         }
     }
     return lista;
+}
+
+int sumarListaRecursivo2(nodo *lista) {
+    return (lista)?lista->dato+sumarListaRecursivo2(lista->siguiente):0;
 }
