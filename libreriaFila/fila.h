@@ -10,7 +10,8 @@ typedef struct {
     nodoDoble *fin;
 } Fila;
 
-Fila * inicFila(Fila * fila);
+// Fila * inicFila(Fila * fila);
+void inicFila(Fila * fila);
 void agregarFila(Fila * fila, int dato);
 void muestraFila(Fila * fila);
 int extraerFila(Fila * fila);

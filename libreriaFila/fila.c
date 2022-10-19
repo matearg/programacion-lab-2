@@ -1,10 +1,15 @@
 #include "fila.h"
 
-Fila * inicFila(Fila * fila) {
+// Fila * inicFila(Fila * fila) {
+//     fila->inicio = NULL;
+//     fila->fin = NULL;
+//
+//     return fila;
+// }
+
+void inicFila(Fila * fila) {
     fila->inicio = NULL;
     fila->fin = NULL;
-
-    return fila;
 }
 
 void agregarFila(Fila * fila, int dato) {
