@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1665782674 source:z:\home\mateo\github\programacion-lab-2\4-tdalistas\librerialista\lista.c
+	"lista.h"
+
+1665782649 z:\home\mateo\github\programacion-lab-2\4-tdalistas\librerialista\lista.h
+	<stdio.h>
+	<stdlib.h>
+	"producto.h"
+
+1666310627 z:\home\mateo\github\programacion-lab-2\4-tdalistas\librerialista\producto.h
+	<stdio.h>
+	<string.h>
+

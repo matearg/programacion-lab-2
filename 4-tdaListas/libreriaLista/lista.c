@@ -81,15 +81,22 @@ nodo * buscarUltimo(nodo * lista)
 
 nodo * agregarEnOrden(nodo * lista, nodo * nuevo)
 {
-    if (!lista) {
+    if (!lista)
+    {
         lista = nuevo;
-    } else {
-        if (strcmp(nuevo->dato.nombre, lista->dato.nombre) < 0) {
+    }
+    else
+    {
+        if (strcmp(nuevo->dato.nombre, lista->dato.nombre) < 0)
+        {
             lista = agregarAlPrincipio(lista, nuevo);
-        } else {
+        }
+        else
+        {
             nodo * ante = lista;
             nodo * seg = lista->siguiente;
-            while ((seg) && (strcmp(nuevo->dato.nombre, seg->dato.nombre) > 0)) {
+            while ((seg) && (strcmp(nuevo->dato.nombre, seg->dato.nombre) > 0))
+            {
                 ante = seg;
                 seg = seg->siguiente;
             }
@@ -104,8 +111,10 @@ nodo * buscarNodo(nodo * lista, char nombre[20])
 {
     nodo * seg = lista;
 
-    if (lista) {
-        while ((seg) && (strcmp(nombre, seg->dato.nombre) != 0)) {
+    if (lista)
+    {
+        while ((seg) && (strcmp(nombre, seg->dato.nombre) != 0))
+        {
             seg = seg->siguiente;
         }
     }
@@ -122,14 +131,17 @@ nodo * borrarNodo(nodo * lista, char nombre[20])
     {
         nodo * aux = lista;
         lista = lista->siguiente;
-    } else {
+    }
+    else
+    {
         seg = lista;
         while ((seg) && (strcmp(nombre, seg->dato.nombre) != 0))
         {
             ante = seg;
             seg = seg->siguiente;
         }
-        if (seg) {
+        if (seg)
+        {
             ante->siguiente = seg->siguiente;
             free(seg);
         }
@@ -137,8 +149,10 @@ nodo * borrarNodo(nodo * lista, char nombre[20])
     return lista;
 }
 
-nodo *eliminarPrimerNodo(nodo *lista) {
-    if (lista) {
+nodo *eliminarPrimerNodo(nodo *lista)
+{
+    if (lista)
+    {
         nodo *aux = lista;
         lista = lista->siguiente;
         free(aux);
@@ -147,18 +161,22 @@ nodo *eliminarPrimerNodo(nodo *lista) {
 }
 
 // SUBPROGRAMAS
-nodo * subProgramaAgregarAlFinal(nodo * lista, stProducto dato) {
+nodo * subProgramaAgregarAlFinal(nodo * lista, stProducto dato)
+{
     nodo * aux = crearNodo(dato);
     lista = agregarAlFinal(lista, aux);
     return lista;
 }
 
-nodo * subProgramaArchivoToLista(nodo * lista, char archivo[]) {
+nodo * subProgramaArchivoToLista(nodo * lista, char archivo[])
+{
     stProducto aux;
     FILE * archi = fopen(archivo, "rb");
 
-    if (archi) {
-        while (fread(&aux, sizeof(stProducto), 1, archi) > 0) {
+    if (archi)
+    {
+        while (fread(&aux, sizeof(stProducto), 1, archi) > 0)
+        {
             lista = subProgramaAgregarAlFinal(lista, aux);
         }
         fclose(archi);
@@ -166,12 +184,15 @@ nodo * subProgramaArchivoToLista(nodo * lista, char archivo[]) {
     return lista;
 }
 
-void subProgramaListaToArchivo(nodo * lista, char archivo[]) {
+void subProgramaListaToArchivo(nodo * lista, char archivo[])
+{
     stProducto aux;
     FILE * archi = fopen(archivo, "ab");
 
-    if (archi && lista) {
-        while (lista) {
+    if (archi && lista)
+    {
+        while (lista)
+        {
             aux = lista->dato;
             fwrite(&aux, sizeof(stProducto), 1, archi);
             lista = lista->siguiente;
@@ -184,13 +205,15 @@ nodo * subProgramaCargarLista(nodo * lista)
 {
     char control;
 
-    do {
+    do
+    {
         lista = agregarAlFinal(lista, crearNodo(cargarProducto()));
 
         printf("Quiere agregar otro producto? s/n ");
         fflush(stdin);
         scanf("%c", &control);
-    } while (control == 's');
+    }
+    while (control == 's');
 
     return lista;
 }
@@ -200,7 +223,8 @@ nodo * subProgramaVaciarLista(nodo * lista)
     nodo * seg = lista;
     nodo * proximo;
 
-    while (seg) {
+    while (seg)
+    {
         proximo = seg->siguiente;
         free(seg);
         seg = proximo;
@@ -212,13 +236,15 @@ nodo * subProgramaCargarOrdenada(nodo * lista)
 {
     char control;
 
-    do {
+    do
+    {
         lista = agregarEnOrden(lista, crearNodo(cargarProducto()));
 
         printf("Quiere agregar otro producto? s/n ");
         fflush(stdin);
         scanf("%c", &control);
-    } while (control == 's');
+    }
+    while (control == 's');
 
     return lista;
 }

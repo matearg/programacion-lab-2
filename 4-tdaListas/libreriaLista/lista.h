@@ -5,7 +5,8 @@
 #include <stdlib.h>
 #include "producto.h"
 
-typedef struct _nodo{
+typedef struct _nodo
+{
     stProducto dato;
     struct _nodo * siguiente;
 } nodo;
