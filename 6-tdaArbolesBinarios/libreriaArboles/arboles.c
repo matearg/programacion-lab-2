@@ -78,3 +78,37 @@ void postorder(nodoArbol * arbol) {
         printf("%d", arbol->dato);
     }
 }
+
+nodoArbol * busquedaPreorder(nodoArbol * arbol, int dato) {
+    nodoArbol * rta = NULL;
+    if (arbol) {
+        if (arbol->dato == dato) {
+            rta = arbol;
+        } else {
+            rta = busquedaPreorder(arbol->izq, dato);
+            if (!rta) {
+                rta = busquedaPreorder(arbol->der, dato);
+            }
+        }
+    }
+    return rta;
+}
+
+int contarNodo(nodoArbol * arbol) {
+    int rta = 0;
+
+    if (arbol)
+        rta = 1 + contarNodo(arbol->izq) + contarNodo(arbol->der);
+
+    return rta;
+}
+
+int alturaArbol(nodoArbol * arbol) {
+    int rta = 0;
+
+    if (arbol) {
+        rta = 1;
+    }
+
+    return rta;
+}
