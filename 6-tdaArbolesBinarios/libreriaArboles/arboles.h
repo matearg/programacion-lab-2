@@ -20,5 +20,8 @@ void postorder(nodoArbol * arbol);
 nodoArbol * busquedaPreorder(nodoArbol * arbol, int dato);
 int contarNodos(nodoArbol * arbol);
 int alturaArbol(nodoArbol * arbol);
+nodoArbol * nodoMasDerecha(nodoArbol * arbol);
+nodoArbol * nodoMasIsquierda(nodoArbol * arbol);
+int esHoja(nodoArbol * nodo);
 
 #endif // ARBOLES_H_INCLUDED

@@ -112,3 +112,33 @@ int alturaArbol(nodoArbol * arbol) {
 
     return rta;
 }
+
+nodoArbol * nodoMasDerecha(nodoArbol * arbol) {
+    nodoArbol * rta = arbol;
+
+    if (arbol)
+        if (arbol->der)
+            rta = nodoMasDerecha(arbol->der);
+
+    return rta;
+}
+
+nodoArbol * nodoMasIzquierda(nodoArbol * arbol) {
+    nodoArbol * rta = arbol;
+
+    if (arbol)
+        if (arbol->izq)
+            rta = nodoMasIzquierda(arbol->izq);
+
+    return rta;
+}
+
+int esHoja(nodoArbol * nodo) {
+    int rta = 0;
+
+    if (nodo)
+        if ((nodo->der != NULL) & (nodo->izq != NULL))
+            rta = 1;
+
+    return rta;
+}

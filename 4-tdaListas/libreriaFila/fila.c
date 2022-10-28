@@ -1,15 +1,9 @@
 #include "fila.h"
-
-// Fila * inicFila(Fila * fila) {
-//     fila->inicio = NULL;
-//     fila->fin = NULL;
-//
-//     return fila;
-// }
+#include <stdlib.h>
 
 void inicFila(Fila * fila) {
-    fila->inicio = NULL;
-    fila->fin = NULL;
+    fila->inicio = inicLstaD();
+    fila->fin = inicLstaD();
 }
 
 void agregarFila(Fila * fila, int dato) {
@@ -26,9 +20,39 @@ void muestraFila(Fila * fila) {
 }
 
 int extraerFila(Fila * fila) {
-    return 0;
+    int resp;
+
+    if (fila->inicio) {
+        resp = verPrimero(fila->inicio);
+        fila->inicio = borrarPrimero(fila->inicio);
+        if (!fila->inicio) {
+            fila->fin = inicLstaD();
+        }
+    }
+
+    return resp;
 }
 
 int filaVacia(Fila * fila) {
     return(fila->inicio)?0:1;
+}
+
+int verPrimero(nodoDoble * lista) {
+    int rta = 0;
+
+    if (lista)
+        rta = lista->dato;
+
+    return 0;
+}
+
+nodoDoble * borrarPrimero(nodoDoble * lista) {
+    nodoDoble * aBorrar = lista;
+    if (lista) {
+        lista = lista->siguiente;
+        if (lista)
+            lista->anterior = NULL;
+        free(aBorrar);
+    }
+    return lista;
 }

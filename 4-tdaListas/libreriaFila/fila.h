@@ -15,5 +15,7 @@ void inicFila(Fila * fila);
 void agregarFila(Fila * fila, int dato);
 void muestraFila(Fila * fila);
 int extraerFila(Fila * fila);
+int verPrimero(nodoDoble * lista);
+nodoDoble * borrarPrimero(nodoDoble * lista);
 
 #endif // FILA_H_INCLUDED

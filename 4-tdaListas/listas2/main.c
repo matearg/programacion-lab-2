@@ -65,19 +65,25 @@ void menu(nodo * lista)
     while (opcion != 0);
 }
 
-void recorrerYmostrar(nodo * lista) {
-    if (lista) {
+void recorrerYmostrar(nodo * lista)
+{
+    if (lista)
+    {
         mostrarNodo(lista);
         recorrerYmostrar(lista->siguiente);
     }
 }
 
-int sumarListaRecursivo(nodo * lista) {
+int sumarListaRecursivo(nodo * lista)
+{
     int suma;
-    if (lista) {
+    if (lista)
+    {
         suma = lista->dato.dni + sumarListaRecursivo(lista->siguiente);
         sumarListaRecursivo(lista->siguiente);
-    } else {
+    }
+    else
+    {
         suma = 0;
     }
     return suma;

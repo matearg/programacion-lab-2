@@ -219,9 +219,11 @@ nodo *subProgramaCargaRecursiva(nodo *lista)
     return lista;
 }
 
-nodo *invertirListaRecursivo(nodo *lista) {
+nodo *invertirListaRecursivo(nodo *lista)
+{
     nodo * aux;
-    if (lista) {
+    if (lista)
+    {
         aux = desvincularNodoInicial(&lista);
         lista = invertirListaRecursivo(lista);
         lista = agregarAlFinal(lista, aux);
@@ -229,8 +231,10 @@ nodo *invertirListaRecursivo(nodo *lista) {
     return lista;
 }
 
-nodo *eliminarPrimerNodo(nodo *lista) {
-    if (lista) {
+nodo *eliminarPrimerNodo(nodo *lista)
+{
+    if (lista)
+    {
         nodo *aux = lista;
         lista = lista->siguiente;
         free(aux);
@@ -238,17 +242,23 @@ nodo *eliminarPrimerNodo(nodo *lista) {
     return lista;
 }
 
-nodo * borrarNodoRecursiva(nodo * lista, int num) {
-    if (lista) {
-        if (lista->dato == num) {
+nodo * borrarNodoRecursiva(nodo * lista, int num)
+{
+    if (lista)
+    {
+        if (lista->dato == num)
+        {
             lista = eliminarPrimerNodo(lista);
-        } else {
+        }
+        else
+        {
             lista->siguiente = borrarNodoRecursiva(lista->siguiente, num);
         }
     }
     return lista;
 }
 
-int sumarListaRecursivo2(nodo *lista) {
+int sumarListaRecursivo2(nodo *lista)
+{
     return (lista)?lista->dato+sumarListaRecursivo2(lista->siguiente):0;
 }
