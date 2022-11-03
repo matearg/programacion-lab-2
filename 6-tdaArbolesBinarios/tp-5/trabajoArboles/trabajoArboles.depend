@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1667435600 source:c:\users\mateo\github\programacion-lab-2\6-tdaarbolesbinarios\tp-5\trabajoarboles\arboles.c
+	"arboles.h"
+
+1667432714 c:\users\mateo\github\programacion-lab-2\6-tdaarbolesbinarios\tp-5\trabajoarboles\arboles.h
+	<stdio.h>
+	<stdlib.h>
+
+1667432714 source:c:\users\mateo\github\programacion-lab-2\6-tdaarbolesbinarios\tp-5\trabajoarboles\producto.c
+	"producto.h"
+	<stdio.h>
+
+1667432714 c:\users\mateo\github\programacion-lab-2\6-tdaarbolesbinarios\tp-5\trabajoarboles\producto.h
+	<stdio.h>
+	<string.h>
+
+1667436180 source:c:\users\mateo\github\programacion-lab-2\6-tdaarbolesbinarios\tp-5\trabajoarboles\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"arboles.h"
+

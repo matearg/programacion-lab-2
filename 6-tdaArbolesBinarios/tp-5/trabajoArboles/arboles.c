@@ -57,7 +57,7 @@ nodoArbol * insertarNodo(nodoArbol * arbol, int dato)
 
 void preorder(nodoArbol * arbol) {
     if (arbol) {
-        printf("%d", arbol->dato);
+        printf("%d ", arbol->dato);
         preorder(arbol->izq);
         preorder(arbol->der);
     }
@@ -66,7 +66,7 @@ void preorder(nodoArbol * arbol) {
 void inorder(nodoArbol * arbol) {
     if (arbol) {
         inorder(arbol->izq);
-        printf("%d", arbol->dato);
+        printf("%d ", arbol->dato);
         inorder(arbol->der);
     }
 }
@@ -75,6 +75,6 @@ void postorder(nodoArbol * arbol) {
     if (arbol) {
         inorder(arbol->izq);
         inorder(arbol->der);
-        printf("%d", arbol->dato);
+        printf("%d ", arbol->dato);
     }
 }
