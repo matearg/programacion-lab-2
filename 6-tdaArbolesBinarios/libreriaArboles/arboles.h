@@ -4,7 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct _nodoArbol {
+typedef struct _nodoArbol
+{
     int dato;
     struct _nodoArbol * izq;
     struct _nodoArbol * der;
@@ -23,5 +24,8 @@ int alturaArbol(nodoArbol * arbol);
 nodoArbol * nodoMasDerecha(nodoArbol * arbol);
 nodoArbol * nodoMasIsquierda(nodoArbol * arbol);
 int esHoja(nodoArbol * nodo);
+nodoArbol * archivoToArbol(nodoArbol * arbol);
+void arbolToArchivo(nodoArbol * arbol);
+void escribirEnArchivo(nodoArbol * arbol, FILE * archivo);
 
 #endif // ARBOLES_H_INCLUDED
