@@ -170,15 +170,14 @@ int esHoja(nodoArbol * nodo)
 
 nodoArbol * archivoToArbol(nodoArbol * arbol)
 {
-    FILE * archivo = fopen(datos.dat,"rb");
+    FILE * archivo = fopen("datos.dat","rb");
     int aux;
 
     if (archivo)
     {
         while(fread(&aux, sizeof(int), 1, archivo) > 0)
         {
-            nodoArbol * nuevo = crearNodoArbol(aux);
-            arbol = insertarNodo(arbol, nuevo);
+            arbol = insertarNodo(arbol, aux);
         }
         fclose(archivo);
     }
@@ -187,7 +186,7 @@ nodoArbol * archivoToArbol(nodoArbol * arbol)
 
 void arbolToArchivo(nodoArbol * arbol)
 {
-    FILE * archivo = fopen(datos.dat, "ab");
+    FILE * archivo = fopen("datos.dat", "ab");
     if (archivo)
     {
         escribirEnArchivo(arbol, archivo);
@@ -199,8 +198,8 @@ void escribirEnArchivo(nodoArbol * arbol, FILE * archivo)
 {
     if (arbol)
     {
-        frwite(&arbol.dato, sizeof(int), 1, archivo);
-        escribirEnArchivo(arbol.der, archivo);
-        escribirEnArchivo(arbol.izq, archivo);
+        fwrite(&arbol->dato, sizeof(int), 1, archivo);
+        escribirEnArchivo(arbol->der, archivo);
+        escribirEnArchivo(arbol->izq, archivo);
     }
 }
